@@ -2,6 +2,7 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Mockup } from "@/components/ui/mockup";
 import { Glow } from "@/components/ui/glow";
+import Image from "next/image";
 
 interface HeroWithMockupProps {
   title: string;
@@ -110,11 +111,13 @@ export function HeroWithMockup({
                 "border-brand/10 dark:border-brand/5"
               )}
             >
-              <img
-                {...mockupImage}
+              <Image
+                src={mockupImage.src}
+                alt={mockupImage.alt}
+                width={mockupImage.width}
+                height={mockupImage.height}
                 className="w-full h-auto"
-                loading="lazy"
-                decoding="async"
+                priority={true}
               />
             </Mockup>
           </div>
